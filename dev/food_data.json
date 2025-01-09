@@ -1,0 +1,542 @@
+{
+  "recipes": [
+    {
+      "name": "Revuelto de carne y verduras",
+      "plates": 8,
+      "ingredients": [
+        {
+          "ingredient": "queso",
+          "amount": 80,
+          "unit": "g",
+          "ref": "8 cuadraditos"
+        },
+        {
+          "ingredient": "pollo",
+          "amount": 150,
+          "unit": "g",
+          "ref": "½ pechuga aprox"
+        },
+        {
+          "ingredient": "soja texturizada",
+          "amount": 100,
+          "unit": "g",
+          "ref": null
+        },
+        {
+          "ingredient": "huevo",
+          "amount": 100,
+          "unit": "g",
+          "ref": "2"
+        },
+        {
+          "ingredient": "chaucha limpia",
+          "amount": 260,
+          "unit": "g",
+          "ref": "300 sucia aprox"
+        },
+        {
+          "ingredient": "zanahoria",
+          "amount": 220,
+          "unit": "g",
+          "ref": "2 medianas aprox"
+        },
+        {
+          "ingredient": "calabacín",
+          "amount": 220,
+          "unit": "g",
+          "ref": "¼ aprox"
+        },
+        {
+          "ingredient": "papa",
+          "amount": 220,
+          "unit": "g",
+          "ref": "1 aprox"
+        },
+        {
+          "ingredient": "zapallito",
+          "amount": 220,
+          "unit": "g",
+          "ref": "1 aprox"
+        },
+        {
+          "ingredient": "berenjena con piel",
+          "amount": 220,
+          "unit": "g",
+          "ref": "½ aprox"
+        },
+        {
+          "ingredient": "lenteja seca",
+          "amount": 140,
+          "unit": "g",
+          "ref": null
+        }
+      ]
+    },
+    {
+      "name": "Revuelto de carne con ensalada",
+      "plates": 6,
+      "ingredients": [
+        {
+          "ingredient": "queso",
+          "amount": 60,
+          "unit": "g",
+          "ref": "6 cuadraditos"
+        },
+        {
+          "ingredient": "arroz",
+          "amount": 120,
+          "unit": "g",
+          "ref": null
+        },
+        {
+          "ingredient": "pollo",
+          "amount": 120,
+          "unit": "g",
+          "ref": "¼ pechuga aprox"
+        },
+        {
+          "ingredient": "soja texturizada",
+          "amount": 60,
+          "unit": "g",
+          "ref": null
+        },
+        {
+          "ingredient": "huevo",
+          "amount": 150,
+          "unit": "g",
+          "ref": "3"
+        },
+        {
+          "ingredient": "zanahoria",
+          "amount": 80,
+          "unit": "g",
+          "ref": "1 aprox"
+        },
+        {
+          "ingredient": "zucchini",
+          "amount": 80,
+          "unit": "g",
+          "ref": "½ aprox"
+        },
+        {
+          "ingredient": "lechuga",
+          "amount": 60,
+          "unit": "g",
+          "ref": null
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "category": "Hygiene",
+      "name": "Take a bath",
+      "duration": 1800000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5, 6, 7],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Hygiene",
+      "name": "Clean my theets twice",
+      "duration": 480000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5, 6, 7],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Hygiene",
+      "name": "Shave my beard",
+      "duration": 1200000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [4, 7],
+      "startsAt": null,
+      "description": "Day = Shave my eyebrows, Clean my ears",
+      "constraints": null
+    },
+    {
+      "category": "Hygiene",
+      "name": "Cut my hands nails",
+      "duration": 300000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [6],
+      "startsAt": null,
+      "description": null,
+      "constraints": "Day = Cut my feet nails"
+    },
+    {
+      "category": "Hygiene",
+      "name": "Shave my eyebrows",
+      "duration": 300000,
+      "weeks": [1, 3],
+      "dows": [7],
+      "startsAt": null,
+      "description": null,
+      "constraints": "Day = Shave my beard"
+    },
+    {
+      "category": "Hygiene",
+      "name": "Haircut",
+      "duration": 2400000,
+      "weeks": [1],
+      "dows": [2],
+      "startsAt": null,
+      "description": "Include travel 0:05, haircut appointment 0:20, travel 0:05, wash my hair 0:10",
+      "constraints": null
+    },
+    {
+      "category": "Hygiene",
+      "name": "Shave my chest, belly and armpit",
+      "duration": 1200000,
+      "weeks": [1],
+      "dows": [5],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Hygiene",
+      "name": "Cut my feet nails",
+      "duration": 600000,
+      "weeks": [1],
+      "dows": [6],
+      "startsAt": null,
+      "description": null,
+      "constraints": "Day = Cut my hands nails"
+    },
+    {
+      "category": "Hygiene",
+      "name": "Shave my groin",
+      "duration": 1200000,
+      "weeks": [1],
+      "dows": [6],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Hygiene",
+      "name": "Shave my back",
+      "duration": 300000,
+      "weeks": [1, 3],
+      "dows": [6],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Hygiene",
+      "name": "Clean my ears",
+      "duration": 600000,
+      "weeks": [1, 3],
+      "dows": [4],
+      "startsAt": null,
+      "description": null,
+      "constraints": "Day = Shave my beard"
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Wash the dishes of the day",
+      "duration": 600000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5, 6, 7],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Wash dishes used to cook",
+      "duration": 180000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 4],
+      "startsAt": null,
+      "description": null,
+      "constraints": "Day = Cook A or Cook B"
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Wash t-shirts/boxers",
+      "duration": 1080000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1],
+      "startsAt": null,
+      "description": "Include remove armpits' stains by hands 0:09, put them into the washing machine 0:01, hang them 0:8",
+      "constraints": "Day < Take off"
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Wash jackets/jeans/towels twice",
+      "duration": 1800000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [3],
+      "startsAt": null,
+      "description": "Include put them into the washing machine, hang them",
+      "constraints": "Day < Take off"
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Wash bed sheets",
+      "duration": 1500000,
+      "weeks": [1, 3],
+      "dows": [5],
+      "startsAt": null,
+      "description": "Include replace them, put them in the washing machine, hang them",
+      "constraints": "Day < Take off"
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Wash white clothes",
+      "duration": 1200000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [5],
+      "startsAt": null,
+      "description": "Include remove stains by hands, put them into the washing machine, hang them",
+      "constraints": "Day < Take off"
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Take t-shirts/boxers off",
+      "duration": 900000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [2],
+      "startsAt": null,
+      "description": "Include take them off. store them",
+      "constraints": "Day > Wash"
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Take jackets/jeans/towels off",
+      "duration": 600000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [4],
+      "startsAt": null,
+      "description": "Include take them off. store them",
+      "constraints": "Day > Wash"
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Take bed sheets off",
+      "duration": 300000,
+      "weeks": [1, 3],
+      "dows": [6],
+      "startsAt": null,
+      "description": "Include take them off. store them",
+      "constraints": "Day > Wash"
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Take white clothes off",
+      "duration": 300000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [6],
+      "startsAt": null,
+      "description": "Include take them off. store them",
+      "constraints": "Day > Wash"
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Clean some shared place",
+      "duration": 3600000,
+      "weeks": [1, 3],
+      "dows": [6],
+      "startsAt": null,
+      "description": null,
+      "constraints": "Day which i'm at home, better on weekends"
+    },
+    {
+      "category": "Clean, wash",
+      "name": "Clean room",
+      "duration": 5400000,
+      "weeks": [2],
+      "dows": [6],
+      "startsAt": null,
+      "description": null,
+      "constraints": "Day which i'm at home, better on weekends"
+    },
+    {
+      "category": "Work, study",
+      "name": "Jose work 1st block",
+      "duration": 14400000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5],
+      "startsAt": "09:00",
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Work, study",
+      "name": "Jose work 2nd block",
+      "duration": 7200000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Work, study",
+      "name": "Study",
+      "duration": 3600000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Excercise",
+      "name": "Football",
+      "duration": 8100000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [2],
+      "startsAt": "18:30",
+      "description": "Include dess me 0:05, travel 0:15, game 1:00, rest and pay 0:10, travel 0:15, rest and drink 0:10, stretch 0:20",
+      "constraints": "Day != Go shop"
+    },
+    {
+      "category": "Excercise",
+      "name": "Gym at home",
+      "duration": 2400000,
+      "weeks": [2, 3, 4, 5],
+      "dows": [1],
+      "startsAt": null,
+      "description": null,
+      "constraints": "Week != Buy clothes, Day != Go shop"
+    },
+    {
+      "category": "Excercise",
+      "name": "Walking",
+      "duration": 1200000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [2, 4, 5, 6, 7],
+      "startsAt": null,
+      "description": null,
+      "constraints": "Day != Football or Gym at home"
+    },
+    {
+      "category": "Shopping",
+      "name": "Make request and recieve stuff of greengrocery",
+      "duration": 1200000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [5],
+      "startsAt": null,
+      "description": "Include check what i need, make the request, recieve the box and store all",
+      "constraints": null
+    },
+    {
+      "category": "Shopping",
+      "name": "Go shop to Market/Dietary/Bakery/Laverap/Drugstore/Etc.",
+      "duration": 4800000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [3],
+      "startsAt": null,
+      "description": "Include check what i need 0:15, change clothes twice 0:10, go shop 0:45, store all 0:5, load tt 0:5",
+      "constraints": "Day != Football or Gym at home"
+    },
+    {
+      "category": "Shopping",
+      "name": "Buy clothes",
+      "duration": 5400000,
+      "weeks": [1],
+      "dows": [1],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Cook, eat",
+      "name": "Lunch",
+      "duration": 3000000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5, 6, 7],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Cook, eat",
+      "name": "Dinner",
+      "duration": 3000000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5, 6, 7],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Cook, eat",
+      "name": "Make and have breakfast",
+      "duration": 1200000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5, 6, 7],
+      "startsAt": null,
+      "description": null,
+      "constraints": null
+    },
+    {
+      "category": "Cook, eat",
+      "name": "Prepare food A",
+      "duration": 300000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5],
+      "startsAt": null,
+      "description": "Soak lentils",
+      "constraints": "Day = wash dishes used to cook and Cook A"
+    },
+    {
+      "category": "Cook, eat",
+      "name": "Cook A",
+      "duration": 4800000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1],
+      "startsAt": null,
+      "description": "Cook revuelto de carne y verduras",
+      "constraints": "Day = wash dishes used to cook and Prepare food A"
+    },
+    {
+      "category": "Cook, eat",
+      "name": "Cook B",
+      "duration": 4800000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [4],
+      "startsAt": null,
+      "description": "Cook revuelto de carne y ensalada",
+      "constraints": "Day = wash dishes used to cook and Prepare food B"
+    },
+    {
+      "category": "Life",
+      "name": "Sleep night",
+      "duration": 31500000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5, 6, 7],
+      "startsAt": null,
+      "description": "Include pre night 1:00, night 7:00, post night, 0:45",
+      "constraints": null
+    },
+    {
+      "category": "Life",
+      "name": "Bath 1 four times, 2 once",
+      "duration": 1680000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [1, 2, 3, 4, 5, 6, 7],
+      "startsAt": null,
+      "description": "Include bath 1 0:02, bath 2 0:20",
+      "constraints": null
+    },
+    {
+      "category": "Life",
+      "name": "Weigh myself",
+      "duration": 600000,
+      "weeks": [1, 2, 3, 4, 5],
+      "dows": [5],
+      "startsAt": null,
+      "description": null,
+      "constraints": "Day != Football"
+    }
+  ]
+}

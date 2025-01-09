@@ -1,0 +1,115 @@
+{
+  "budget": {
+    "entries": [
+      {
+        "metadata": {
+          "name": "A",
+          "description": "10a",
+          "tags": [
+            {
+              "name": "Tag1"
+            },
+            {
+              "name": "Tag2"
+            }
+          ]
+        },
+        "type": "income",
+        "catalogEntryItems": [
+          {
+            "catalogEntry": "a",
+            "factor": 10
+          }
+        ]
+      },
+      {
+        "metadata": {
+          "name": "B",
+          "description": "b",
+          "tags": [
+            {
+              "name": "Tag1"
+            }
+          ]
+        },
+        "type": "expense",
+        "catalogEntryItems": [
+          {
+            "catalogEntry": "b",
+            "factor": 1
+          }
+        ]
+      },
+      {
+        "metadata": {
+          "name": "CD",
+          "description": "c + 2d",
+          "tags": [
+            {
+              "name": "Tag2"
+            }
+          ]
+        },
+        "type": "expense",
+        "catalogEntryItems": [
+          {
+            "catalogEntry": "c",
+            "factor": 1
+          },
+          {
+            "catalogEntry": "d",
+            "factor": 2
+          }
+        ]
+      }
+    ]
+  },
+  "catalog": {
+    "entries": [
+      {
+        "metadata": {
+          "name": "a",
+          "description": ""
+        },
+        "price": {
+          "value": 100,
+          "absoluteError": 50
+        },
+        "adjustForInflation": false,
+        "lastPriceUpdate": "2023-08-01"
+      },
+      {
+        "metadata": {
+          "name": "b",
+          "description": ""
+        },
+        "price": {
+          "value": 200,
+          "absoluteError": 60
+        },
+        "adjustForInflation": true,
+        "lastPriceUpdate": "2023-08-01"
+      },
+      {
+        "metadata": {
+          "name": "c",
+          "description": ""
+        },
+        "price": { "value": 300, "absoluteError": 0 },
+        "adjustForInflation": true,
+        "lastPriceUpdate": "2023-08-01"
+      },
+      {
+        "metadata": {
+          "name": "d",
+          "description": ""
+        },
+        "price": { "value": 400, "absoluteError": 100 },
+        "adjustForInflation": true,
+        "lastPriceUpdate": "2023-08-01"
+      }
+    ]
+  },
+  "inflationIndexSerieUrl": "https://api.estadisticasbcra.com/cer",
+  "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjA1NzI1MzcsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJuYWNob2dyYWZmaW9uZUBnbWFpbC5jb20ifQ.cJ3LoihNRv3z1wEkU41TQJaNCRx4Ac23toncl5Ybd8-iIOcEVYZZvSvo_J5qoByH0n7Ky84L28ZtsXlDrmTBqw"
+}
