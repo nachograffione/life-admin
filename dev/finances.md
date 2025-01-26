@@ -47,7 +47,7 @@ class finances.FinancesManager {
   getBudgetTags():List<TagDto>
 }
 
-class finances.SalariesManager #Indigo
+class finances.WorkArrangementManager #Indigo
 
 class finances.Budget 
 
@@ -57,7 +57,7 @@ class finances.InflationCalculator
 
 ' TODO: check if tagsTree should be owned by Budget
 finances.FinancesManager ---> "1" shared.TagTreeNode : tagsTree
-finances.FinancesManager -d-> "1" finances.SalariesManager : salariesManager
+finances.FinancesManager -d-> "1" finances.WorkArrangementManager : workArrangementManager
 finances.FinancesManager -d-> "1" finances.Budget : budget
 finances.FinancesManager -d-> "1" finances.Catalog : catalog
 finances.FinancesManager -d-> "1" finances.InflationCalculator : inflationCalculator
@@ -232,13 +232,24 @@ class finances.CatalogEntryItem {
 class finances.Price #Indigo {
   value:Float
   absoluteError:Float
+  getValue(currency:Currency):Float
 }
 
 class shared.Metadata {
 }
 
 class shared.Currency #Indigo {
+  symbol:String
+  referenceCurrencyValue:Float
+  toCurrency(value:Float, currency:Currency):Float
 }
+
+note as shared.n1
+The reference currency will be anyone
+with a referenceCurrencyValue of 1.
+end note
+
+shared.Currency .d. shared.n1
 
 shared.Metadata -[hidden]r-> shared.Currency
 
@@ -259,5 +270,83 @@ finances.Price -d-> "1" shared.Currency : currency
 finances.CatalogEntry -d-> "1" shared.Metadata : metadata
 finances.BudgetEntry -d-> "1" shared.Metadata : metadata
 
+@enduml
+```
+
+## WorkArrangementManager
+
+```plantuml
+@startuml lifeAdminModel
+!theme reddress-darkblue
+skinparam classAttributeIconSize 0
+hide circle
+<style>
+  classDiagram {
+    fontname "Arial"
+    header {
+      fontstyle bold
+      fontsize 15
+    }
+    class {
+      fontsize 13
+    }
+    note {
+      fontsize 13
+      backgroundColor grey
+    }
+  }
+</style>
+
+package finances {}
+package shared {}
+
+class finances.WorkArrangementManager #Indigo {
+}
+
+class finances.WorkArrangement #Indigo {
+  getWorkingHours():Float 
+}
+
+enum finances.PayPeriod #Indigo { 
+  HOURLY
+  DAILY
+  WEEKLY
+  MONTHLY
+  ANNUALLY
+}
+
+enum finances.WorkArrangementKind #Indigo {
+  FREELANCE
+  MIN_PART_TIME
+  MAX_PART_TIME
+  FULL_TIME
+}
+
+class finances.WorkingHoursCalculator #Indigo {
+  minPartTimeHoursADay:Float
+  maxPartTimeHoursADay:Float
+  fullTimeHoursADay:Float
+  daysAWeek:Float
+  weeksAMonth:Float
+  monthsAYear:Float
+  getWorkingHoursOf(\nworkArrangementKind:WorkArrangementKind,\npayPeriod:PayPeriod):Float
+}
+
+class finances.HourPriceCalculator #Indigo {
+  getHourPrice(\nworkArrangementKind: WorkArrangementKind):Price
+}
+
+finances.WorkArrangementManager -d-> "*" finances.WorkArrangement : workArrangements
+
+finances.WorkArrangement .u.|> finances.Priceable
+finances.WorkArrangement ----> "1" shared.Metadata : metadata
+finances.WorkArrangement ---> "1" finances.WorkArrangementKind : kind
+finances.WorkArrangement --> "1" finances.PayPeriod : payPeriod
+finances.WorkArrangement --> "1" finances.WorkingHoursCalculator : workingHoursCalculator
+finances.WorkArrangement --> "1" finances.HourPriceCalculator : hourPriceCalculator
+
+finances.HourPriceCalculator --> "*" finances.CatalogEntryItem : referenceFullTimeMonthlySalaries
+
+finances.WorkArrangementManager -r[hidden]-> finances.Priceable
 @enduml
 ```
