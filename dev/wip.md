@@ -6,7 +6,6 @@
 - Seguir con lo que está en Indigo en finances
   - Ya rehice el diagrama para WorkArrangementManager (ex SalariesManager)
     - El código hecho es obsoleto, hay que rehacer
-  - Estaría bueno sacar aparte todo lo de Catalog que está junto con Budget, porque ahora se usa en WorkArrangements también
 
 
 ### How to release?

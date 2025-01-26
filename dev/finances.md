@@ -163,6 +163,129 @@ finances.InflationIndexProvider -d-> "*" finances.InflationIndex : inflationInde
 @enduml
 ```
 
+## Price
+
+```plantuml
+@startuml lifeAdminModel
+!theme reddress-darkblue
+skinparam classAttributeIconSize 0
+hide circle
+<style>
+  classDiagram {
+    fontname "Arial"
+    header {
+      fontstyle bold
+      fontsize 15
+    }
+    class {
+      fontsize 13
+    }
+    note {
+      fontsize 13
+      backgroundColor grey
+    }
+  }
+</style>
+
+package finances {}
+package shared {}
+
+interface finances.Priceable {
+  getPrice():Price
+}
+
+class finances.Price #Indigo {
+  value:Float
+  absoluteError:Float
+  getValue(currency:Currency):Float
+}
+
+
+class shared.Currency #Indigo {
+  symbol:String
+  referenceCurrencyValue:Float
+  toCurrency(value:Float, currency:Currency):Float
+}
+
+note as shared.n1
+The reference currency will be anyone
+with a referenceCurrencyValue of 1.
+end note
+
+shared.Currency .r. shared.n1
+
+finances.Price -d-> "1" shared.Currency : currency
+
+finances.Price -r[hidden]-> finances.Priceable
+
+@enduml
+```
+
+## Catalog
+
+```plantuml
+@startuml lifeAdminModel
+!theme reddress-darkblue
+skinparam classAttributeIconSize 0
+hide circle
+<style>
+  classDiagram {
+    fontname "Arial"
+    header {
+      fontstyle bold
+      fontsize 15
+    }
+    class {
+      fontsize 13
+    }
+    note {
+      fontsize 13
+      backgroundColor grey
+    }
+  }
+</style>
+
+package finances {}
+package shared {}
+
+class finances.Catalog {
+  getEntries():List<CatalogEntry>
+  updatePrices(inflationCalculator:InflationCalculator)
+}
+
+interface finances.Priceable {
+}
+
+class finances.CatalogEntry {
+  adjustForInflation:Bool
+  lastPriceUpdate:Datetime
+  updatePrice(inflationCalculator:InflationCalculator)
+}
+
+class finances.CatalogEntryItem {
+  factor:Float
+}
+
+class finances.Price {
+}
+
+class shared.Metadata {
+}
+
+finances.Catalog --> "*" finances.CatalogEntry : entries
+
+finances.CatalogEntryItem ---> "1" finances.CatalogEntry : catalogEntry
+finances.CatalogEntryItem .d.> finances.n1
+
+finances.CatalogEntry ..u.|> finances.Priceable
+finances.CatalogEntry --> "1" finances.Price : price
+finances.CatalogEntry -d--> "1" shared.Metadata : metadata
+
+finances.Catalog -r[hidden]-> finances.Priceable
+
+@enduml
+```
+
 ## Budget
 
 ```plantuml
@@ -202,22 +325,10 @@ class finances.Budget {
   getEntriesPriceSum(filter:BudgetFilter):Price
 }
 
-class finances.Catalog {
-  getEntries():List<CatalogEntry>
-  updatePrices(inflationCalculator:InflationCalculator)
-}
-
 interface finances.Priceable {
-  getPrice():Price
 }
 
 class finances.BudgetEntry {
-}
-
-class finances.CatalogEntry {
-  adjustForInflation:Bool
-  lastPriceUpdate:Datetime
-  updatePrice(inflationCalculator:InflationCalculator)
 }
 
 enum finances.BudgetEntryType {
@@ -226,49 +337,22 @@ enum finances.BudgetEntryType {
 }
 
 class finances.CatalogEntryItem {
-  factor:Float
-}
-
-class finances.Price #Indigo {
-  value:Float
-  absoluteError:Float
-  getValue(currency:Currency):Float
 }
 
 class shared.Metadata {
 }
 
-class shared.Currency #Indigo {
-  symbol:String
-  referenceCurrencyValue:Float
-  toCurrency(value:Float, currency:Currency):Float
-}
+finances.Budget --> "*" finances.BudgetEntry : entries
 
-note as shared.n1
-The reference currency will be anyone
-with a referenceCurrencyValue of 1.
-end note
+finances.BudgetEntry --> "*" finances.CatalogEntryItem : catalogEntryItems
 
-shared.Currency .d. shared.n1
-
-shared.Metadata -[hidden]r-> shared.Currency
-
-finances.Budget ---> "*" finances.BudgetEntry : entries
-finances.Catalog ---> "*" finances.CatalogEntry : entries
-
-finances.BudgetEntry -r-> "*" finances.CatalogEntryItem : catalogEntryItems
-finances.CatalogEntryItem -r-> "1" finances.CatalogEntry : catalogEntry
-
-finances.CatalogEntry .u.|> finances.Priceable
 finances.BudgetEntry .u.|> finances.Priceable
 
-finances.CatalogEntry --> "1" finances.Price : price
 finances.BudgetEntry --> "1" finances.BudgetEntryType : type
 
-finances.Price -d-> "1" shared.Currency : currency
+finances.BudgetEntry ---> "1" shared.Metadata : metadata
 
-finances.CatalogEntry -d-> "1" shared.Metadata : metadata
-finances.BudgetEntry -d-> "1" shared.Metadata : metadata
+finances.Budget -r[hidden]-> finances.Priceable
 
 @enduml
 ```
