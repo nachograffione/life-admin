@@ -45,6 +45,8 @@ class finances.FinancesManager {
   getBudgetEntriesSum(filter:BudgetFilterDto):PriceDto
   ' TODO: check return type
   getBudgetTags():List<TagDto>
+  ..
+  getWorkArrangements():List<WorkArrangementDto>
 }
 
 class finances.WorkArrangementManager #Indigo
@@ -385,6 +387,7 @@ package finances {}
 package shared {}
 
 class finances.WorkArrangementManager #Indigo {
+  getWorkArrangements():List<WorkArrangement>
 }
 
 class finances.WorkArrangement #Indigo {
