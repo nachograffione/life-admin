@@ -9,16 +9,17 @@ class InflationCalculator {
 
   double getInflationRateFromDatetimes(DateTime from, DateTime to) {
     final fromValue = inflationIndexProvider.getInflationIndex(from);
-    return (inflationIndexProvider.getInflationIndex(to) - fromValue) /
-        fromValue;
+    final toValue = inflationIndexProvider.getInflationIndex(to);
+    return (toValue - fromValue) / fromValue;
   }
 
   double getInflationRateFromReferenceAndInterval(
       DateTime reference, InflationRateInterval interval) {
     final fromDateTime = _getIntervalStart(reference, interval);
-    final fromValue = inflationIndexProvider.getInflationIndex(fromDateTime);
-    return (inflationIndexProvider.getInflationIndex(reference) - fromValue) /
-        fromValue;
+    return getInflationRateFromDatetimes(
+      fromDateTime,
+      reference,
+    );
   }
 
   DateTime _getIntervalStart(
