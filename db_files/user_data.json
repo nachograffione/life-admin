@@ -110,6 +110,7 @@
       }
     ]
   },
-  "inflationIndexSerieUrl": "https://api.estadisticasbcra.com/cer",
+  "inflationIndexSerieApi": {
+    "url": "https://api.bcra.gob.ar/estadisticas/v3.0/Monetarias/30",
   "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjA1NzI1MzcsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJuYWNob2dyYWZmaW9uZUBnbWFpbC5jb20ifQ.cJ3LoihNRv3z1wEkU41TQJaNCRx4Ac23toncl5Ybd8-iIOcEVYZZvSvo_J5qoByH0n7Ky84L28ZtsXlDrmTBqw"
 }

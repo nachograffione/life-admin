@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -240,6 +241,8 @@ class Db {
     final inflationIndexSerie = _createInflationIndexSerieFromJson(
         indexSerieJson['inflationIndexSerie'] as List<dynamic>);
 
+    inflationIndexSerie.sortBy((inflationIndex) => inflationIndex.datetime);
+
     final inflationIndexProvider = InflationIndexProvider(
       inflationIndexSerie: inflationIndexSerie,
     );
@@ -309,7 +312,7 @@ class Db {
       log('Request successful');
       final bodyJson = jsonDecode(response.body);
       final json = {
-        'inflationIndexSerie': bodyJson,
+        'inflationIndexSerie': bodyJson['results'],
         'lastUpdate':
             DateFormat('yyyy-MM-dd').format(DefaultDateTimeManager().now()),
       };
@@ -326,8 +329,8 @@ class Db {
   List<InflationIndex> _createInflationIndexSerieFromJson(List<dynamic> json) {
     List<InflationIndex> inflationIndexSerie = [];
     for (dynamic inflationIndex in json) {
-      DateTime datetime = DateTime.parse(inflationIndex['d']);
-      dynamic jsonValue = inflationIndex['v'];
+      DateTime datetime = DateTime.parse(inflationIndex['fecha']);
+      dynamic jsonValue = inflationIndex['valor'];
       inflationIndexSerie.add(InflationIndex(
           datetime: datetime,
           value: jsonValue is int ? jsonValue.toDouble() : jsonValue));
