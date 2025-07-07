@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:life_admin/backend/finances/inflation_index.dart';
 
 class InflationIndexProvider {
@@ -5,7 +6,16 @@ class InflationIndexProvider {
 
   InflationIndexProvider({
     required this.inflationIndexSerie,
-  });
+  }) {
+    if (inflationIndexSerie.isEmpty) {
+      throw ArgumentError('Inflation index serie cannot be empty');
+    }
+    if (!inflationIndexSerie
+        .isSortedBy((inflationIndex) => inflationIndex.datetime)) {
+      throw ArgumentError(
+          'Inflation index serie must be sorted by datetime ascending');
+    }
+  }
 
   double getInflationIndex(DateTime datetime) {
     if (datetime.isAfter(inflationIndexSerie.last.datetime)) {
