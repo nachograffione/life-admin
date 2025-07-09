@@ -1,18 +1,76 @@
 {
+  "financesRootTag": {
+    "name": "Todo",
+    "children": [
+      {
+        "name": "Tag1"
+      },
+      {
+        "name": "Tag2"
+      }
+    ]
+  },
+  "tasksRootTag": {
+    "name": "Todo",
+    "children": [
+      {
+        "name": "Hygiene"
+      },
+      {
+        "name": "Excercise"
+      },
+      {
+        "name": "Shopping"
+      },
+      {
+        "name": "Cook, eat"
+      },
+      {
+        "name": "Life"
+      },
+      {
+        "name": "Work, study"
+      },
+      {
+        "name": "Clean, wash"
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "metadata": {
+        "name": "Sleep night",
+        "description": "Include pre sleep 0:45, sleep 7:30, post sleep, 0:45",
+        "tags": ["Life"]
+      },
+      "datetimeRule": {
+        "startsAt": "01:00",
+        "duration": "9:00",
+        "weekdays": [1, 2, 3, 4, 5, 6, 7],
+        "monthweeks": [1, 2, 3, 4, 5]
+      }
+    },
+    {
+      "metadata": {
+        "name": "Nap",
+        "description": "",
+        "tags": ["Life"]
+      },
+      "datetimeRule": {
+        "startsAt": "15:10",
+        "duration": "0:20",
+        "weekdays": [1, 2, 3, 4, 5, 6, 7],
+        "monthweeks": [1, 2, 3, 4, 5]
+      }
+    }
+  ],
   "budget": {
     "entries": [
       {
         "metadata": {
           "name": "A",
           "description": "10a",
-          "tags": [
-            {
-              "name": "Tag1"
-            },
-            {
-              "name": "Tag2"
-            }
-          ]
+          "tags": ["Tag1", "Tag2"]
         },
         "type": "income",
         "catalogEntryItems": [
@@ -26,11 +84,7 @@
         "metadata": {
           "name": "B",
           "description": "b",
-          "tags": [
-            {
-              "name": "Tag1"
-            }
-          ]
+          "tags": ["Tag1"]
         },
         "type": "expense",
         "catalogEntryItems": [
@@ -44,11 +98,7 @@
         "metadata": {
           "name": "CD",
           "description": "c + 2d",
-          "tags": [
-            {
-              "name": "Tag2"
-            }
-          ]
+          "tags": ["Tag2"]
         },
         "type": "expense",
         "catalogEntryItems": [
@@ -110,6 +160,16 @@
       }
     ]
   },
-  "inflationIndexSerieUrl": "https://api.estadisticasbcra.com/cer",
-  "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjA1NzI1MzcsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJuYWNob2dyYWZmaW9uZUBnbWFpbC5jb20ifQ.cJ3LoihNRv3z1wEkU41TQJaNCRx4Ac23toncl5Ybd8-iIOcEVYZZvSvo_J5qoByH0n7Ky84L28ZtsXlDrmTBqw"
+  "inflationIndexSerieApi": {
+    "url": "https://api.bcra.gob.ar/estadisticas/v3.0/Monetarias/30",
+    "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjA1NzI1MzcsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJuYWNob2dyYWZmaW9uZUBnbWFpbC5jb20ifQ.cJ3LoihNRv3z1wEkU41TQJaNCRx4Ac23toncl5Ybd8-iIOcEVYZZvSvo_J5qoByH0n7Ky84L28ZtsXlDrmTBqw"
+  },
+  "workingTimeRatios": {
+    "minPartTimeHoursADay": 4,
+    "maxPartTimeHoursADay": 6,
+    "fullTimeHoursADay": 8,
+    "daysAWeek": 5,
+    "weeksAMonth": 4.3,
+    "monthsAYear": 12
+  }
 }

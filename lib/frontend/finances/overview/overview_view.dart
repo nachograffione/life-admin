@@ -12,14 +12,14 @@ class OverviewView extends StatelessWidget {
     return CustomScrollable(
       scrollDirection: Axis.vertical,
       children: [
+        Container(
+          alignment: Alignment.centerLeft,
+          child: const InflationRate(),
+        ),
         Heading(data: 'Current day', level: 1),
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 8),
           child: CurrentDayTasksTable(),
-        ),
-        Container(
-          alignment: Alignment.centerLeft,
-          child: const InflationRate(),
         ),
       ],
     );

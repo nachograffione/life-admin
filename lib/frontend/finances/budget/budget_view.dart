@@ -14,21 +14,21 @@ class BudgetView extends StatelessWidget {
       scrollDirection: Axis.vertical,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.symmetric(vertical: 16),
           child: Heading(data: 'Budget', level: 1),
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(vertical: 8),
           child: Align(
             alignment: Alignment.centerLeft,
             child: BudgetFilter(),
           ),
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(vertical: 8),
           child: BudgetTable(),
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(vertical: 8),
           child: BudgetAggregation(),
         ),

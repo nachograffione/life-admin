@@ -27,8 +27,12 @@ class InflationRate extends StatelessWidget {
           100;
 
       return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Inflation rate'),
+          const Text('Inflation rate (CER)',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          const Text('(CER estimates with 2-3 months ago data)',
+              style: TextStyle(fontSize: 16)),
           Text('MTD: ${mtdInflationRatePercentage.toStringAsFixed(2)}%',
               style: const TextStyle(fontSize: 16)),
           Text('YTD: ${ytdInflationRatePercentage.toStringAsFixed(2)}%',

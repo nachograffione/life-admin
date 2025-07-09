@@ -12,7 +12,7 @@ class CatalogView extends StatelessWidget {
       scrollDirection: Axis.vertical,
       children: [
         Heading(data: 'Catalog', level: 1),
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(vertical: 8),
           child: CatalogTable(),
         ),
