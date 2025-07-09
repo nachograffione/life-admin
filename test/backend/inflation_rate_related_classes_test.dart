@@ -1,6 +1,7 @@
 import 'package:life_admin/backend/finances/inflation_calculator.dart';
 import 'package:life_admin/backend/finances/inflation_index.dart';
 import 'package:life_admin/backend/finances/inflation_index_provider.dart';
+import 'package:life_admin/backend/finances/inflation_rate_interval.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -21,6 +22,22 @@ void main() {
       InflationIndex(
         datetime: DateTime(2022, 1, 5),
         value: 4,
+      ),
+      InflationIndex(
+        datetime: DateTime(2022, 2, 6),
+        value: 1,
+      ),
+      InflationIndex(
+        datetime: DateTime(2023, 1, 1),
+        value: 2,
+      ),
+      InflationIndex(
+        datetime: DateTime(2023, 2, 1),
+        value: 4,
+      ),
+      InflationIndex(
+        datetime: DateTime(2023, 2, 6),
+        value: 8,
       )
     ]);
 
@@ -29,7 +46,7 @@ void main() {
           'Given a datetime after serie, when getInflationIndex, then get the last index value',
           () {
         expect(
-            inflationIndexProvider.getInflationIndex(DateTime(2022, 1, 6)), 4);
+            inflationIndexProvider.getInflationIndex(DateTime(2023, 2, 10)), 8);
       });
 
       test(
@@ -78,7 +95,7 @@ void main() {
           () {
         expect(
             inflationCalculator.getInflationRateFromDatetimes(
-                DateTime(2022, 1, 3), DateTime(2022, 1, 7)),
+                DateTime(2023, 2, 1), DateTime(2023, 2, 10)),
             1.0);
       });
 
@@ -101,6 +118,34 @@ void main() {
       });
     });
 
-    // TODO: add getInflationRateFromReferenceAndInterval tests
+    group('getInflationRateFromReferenceAndInterval', () {
+      final inflationCalculator = InflationCalculator(
+        inflationIndexProvider: inflationIndexProvider,
+      );
+      test(
+          'Given a reference date and an mtd interval, when getInflationRateFromReferenceAndInterval, then get the expected result',
+          () {
+        expect(
+            inflationCalculator.getInflationRateFromReferenceAndInterval(
+                DateTime(2023, 2, 6), InflationRateInterval.mtd),
+            1);
+      });
+      test(
+          'Given a reference date and a ytd interval, when getInflationRateFromReferenceAndInterval, then get the expected result',
+          () {
+        expect(
+            inflationCalculator.getInflationRateFromReferenceAndInterval(
+                DateTime(2023, 2, 6), InflationRateInterval.ytd),
+            3);
+      });
+      test(
+          'Given a reference date and an interAnnual interval, when getInflationRateFromReferenceAndInterval, then get the expected result',
+          () {
+        expect(
+            inflationCalculator.getInflationRateFromReferenceAndInterval(
+                DateTime(2023, 2, 6), InflationRateInterval.interAnnual),
+            7);
+      });
+    });
   });
 }
