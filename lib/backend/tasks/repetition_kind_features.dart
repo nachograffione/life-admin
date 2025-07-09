@@ -15,12 +15,11 @@ class RepetitionKindFeatures {
   static const List<Monthweek> dailyMonthweeks = [1, 2, 3, 4, 5];
 
   static const List<Weekday> workdayWeekdays = [
-    // Weekday.monday,
-    // Weekday.tuesday,
-    // Weekday.wednesday,
-    // Weekday.thursday,
-    // Weekday.friday,
-    // Weekday.saturday,
+    Weekday.monday,
+    Weekday.tuesday,
+    Weekday.wednesday,
+    Weekday.thursday,
+    Weekday.friday,
   ];
 
   static const List<Monthweek> workdayMonthweeks = [1, 2, 3, 4, 5];
