@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:life_admin/backend/finances/budget.dart';
 import 'package:life_admin/backend/finances/budget_entry.dart';
@@ -305,11 +306,17 @@ class Db {
   }
 
   Future<void> _updateInflationIndexSerie(String url, String token) async {
-    final response = await http.get(Uri.parse(url), headers: {
-      'Authorization': 'BEARER $token',
-    });
+    late final Response response;
+    try {
+      response = await http.get(Uri.parse(url), headers: {
+        'Authorization': 'BEARER $token',
+      });
+    } catch (e) {
+      log('Error while fetching inflation index serie: $e');
+      return;
+    }
     if (response.statusCode == 200) {
-      log('Request successful');
+      log('Inflation index serie fetched successfully');
       final bodyJson = jsonDecode(response.body);
       final json = {
         'inflationIndexSerie': bodyJson['results'],
