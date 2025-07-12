@@ -162,7 +162,7 @@
   },
   "inflationIndexSerieApi": {
     "url": "https://api.bcra.gob.ar/estadisticas/v3.0/Monetarias/30",
-    "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjA1NzI1MzcsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJuYWNob2dyYWZmaW9uZUBnbWFpbC5jb20ifQ.cJ3LoihNRv3z1wEkU41TQJaNCRx4Ac23toncl5Ybd8-iIOcEVYZZvSvo_J5qoByH0n7Ky84L28ZtsXlDrmTBqw"
+    "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODI3NjM0MzMsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJuYWNob2dyYWZmaW9uZUBnbWFpbC5jb20ifQ.4mV41Qy2Moeahn0CLz-6H8J-ZJ7d462nrhR8SuQQDV3c2RypA4v9Ez_jGObnEtkE2yvCU1lwuaMmCMlTzWSUDg"
   },
   "workingTimeRatios": {
     "minPartTimeHoursADay": 4,
